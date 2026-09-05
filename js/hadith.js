@@ -80,8 +80,11 @@
     localStorage.setItem(FAVORITES_KEY, JSON.stringify(favs));
   }
 
-  // ---------- Иснад: генерация SVG-цепочки ----------
+  // ---------- Иснад: генерация SVG-цепочки (только реальные звенья передачи) ----------
   function buildIsnadSvg(isnad) {
+    const chain = isnad.filter((l) => l.chainLink !== false);
+    const hasNarrative = isnad.some((l) => l.chainLink === false);
+
     const boxHeight = 44;
     const gap = 34;
     const padX = 14;
@@ -89,9 +92,10 @@
     let x = 10;
     const nodes = [];
 
-    isnad.forEach((link) => {
+    chain.forEach((link, i) => {
       const narrator = NARRATORS.find((n) => n.id === link.narratorId);
-      const label = narrator ? narrator.name : link.narratorId;
+      const isLast = i === chain.length - 1;
+      const label = (narrator ? narrator.name : link.narratorId) + (isLast && hasNarrative ? ":" : "");
       const width = Math.max(96, Math.round(label.length * charWidth) + padX * 2);
       nodes.push({ x, width, label, id: link.narratorId });
       x += width + gap;
@@ -128,6 +132,22 @@
         ${linksMarkup}
         ${nodesMarkup}
       </svg>`;
+  }
+
+  // ---------- Участники рассказа внутри хадиса (не звенья иснада) ----------
+  function buildNarrativeParticipants(isnad) {
+    const participants = isnad.filter((l) => l.chainLink === false);
+    if (!participants.length) return "";
+
+    const links = participants
+      .map((link) => {
+        const narrator = NARRATORS.find((n) => n.id === link.narratorId);
+        const label = narrator ? narrator.name : link.narratorId;
+        return `<a class="hadith__isnad-narrative-link" href="narrator.html?id=${encodeURIComponent(link.narratorId)}">${label}</a>`;
+      })
+      .join(", ");
+
+    return `<p class="hadith__isnad-narrative">${links}</p>`;
   }
 
   // ---------- Пред/след хадис внутри главы ----------
@@ -223,6 +243,7 @@
       <div class="hadith__isnad-scroll">
         ${buildIsnadSvg(hadith.isnad)}
       </div>
+      ${buildNarrativeParticipants(hadith.isnad)}
     </div>
 
     <div class="hadith__explanation">

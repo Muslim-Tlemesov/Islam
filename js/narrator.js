@@ -30,9 +30,13 @@
   const taught = new Map();
 
   hadithsWithNarrator.forEach((h) => {
-    const idx = h.isnad.findIndex((l) => l.narratorId === narrator.id);
-    const next = h.isnad[idx + 1]; // следующий в цепочке — тот, у кого учился
-    const prev = h.isnad[idx - 1]; // предыдущий — тот, кому передавал
+    const link = h.isnad.find((l) => l.narratorId === narrator.id);
+    if (!link || link.chainLink === false) return; // персонаж внутри рассказа, а не звено иснада
+
+    const chain = h.isnad.filter((l) => l.chainLink !== false);
+    const idx = chain.findIndex((l) => l.narratorId === narrator.id);
+    const next = chain[idx + 1]; // следующий в цепочке — тот, у кого учился
+    const prev = chain[idx - 1]; // предыдущий — тот, кому передавал
 
     if (next) {
       const n = NARRATORS.find((x) => x.id === next.narratorId);
@@ -56,7 +60,7 @@
       </div>`;
   }
 
-  const connectionsMarkup = connectionGroup("Учился у", studiedUnder) + connectionGroup("Передавал", taught);
+  const connectionsMarkup = connectionGroup("Учился у", studiedUnder) + connectionGroup("Передавал от", taught);
 
   root.innerHTML = `
     <h1 class="narrator__name">${narrator.name}</h1>
