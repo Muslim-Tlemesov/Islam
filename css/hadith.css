@@ -83,8 +83,10 @@ a { color: inherit; }
 
 /* ---------- Arabic block ---------- */
 .hadith__arabic {
-  background: var(--color-ink);
-  color: var(--color-parchment);
+  background: var(--color-parchment-deep);
+  color: var(--color-ink);
+  border: 1px solid rgba(22, 51, 45, 0.18);
+  border-right: 3px solid var(--color-gold);
   border-radius: 2px;
   padding: 36px 32px;
   margin: 0 0 20px;
@@ -179,23 +181,27 @@ a { color: inherit; }
 
 .hadith__isnad-link { stroke: var(--color-sage); stroke-width: 1; }
 
-.hadith__isnad-narrative {
-  margin: 12px 0 0;
+.hadith__isnad-narrative-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0 0;
+}
+
+.hadith__isnad-narrative-box {
+  background: var(--color-parchment-deep);
+  border: 1px solid rgba(22, 51, 45, 0.35);
+  border-radius: 3px;
+  padding: 9px 16px;
   font-size: 0.92rem;
-  color: var(--color-ink-soft);
-  line-height: 1.7;
-}
-
-.hadith__isnad-narrative-link {
-  color: var(--color-ink-soft);
+  color: var(--color-ink);
   text-decoration: none;
-  border-bottom: 1px dotted var(--color-sage);
+  transition: background 0.15s ease;
 }
 
-.hadith__isnad-narrative-link:hover,
-.hadith__isnad-narrative-link:focus-visible {
-  color: var(--color-gold);
-  border-bottom-color: var(--color-gold);
+.hadith__isnad-narrative-box:hover,
+.hadith__isnad-narrative-box:focus-visible {
+  background: var(--color-gold-soft);
 }
 
 /* ---------- Explanation ---------- */
