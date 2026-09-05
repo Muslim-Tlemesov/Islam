@@ -74,10 +74,25 @@
     headingEl.textContent = section.title;
 
     if (section.explanation) {
+      const toggleBtn = document.createElement("button");
+      toggleBtn.type = "button";
+      toggleBtn.className = "browser__section-toggle";
+      toggleBtn.innerHTML = `Подробнее <span class="browser__section-toggle-icon">▾</span>`;
+
       const expl = document.createElement("div");
-      expl.className = "browser__section-explanation";
+      expl.className = "browser__section-explanation browser__section-explanation--hidden";
       expl.innerHTML = paragraphsToHtml(section.explanation);
+
+      toggleBtn.addEventListener("click", () => {
+        const isHidden = expl.classList.toggle("browser__section-explanation--hidden");
+        toggleBtn.classList.toggle("browser__section-toggle--open", !isHidden);
+        toggleBtn.innerHTML = isHidden
+          ? `Подробнее <span class="browser__section-toggle-icon">▾</span>`
+          : `Свернуть <span class="browser__section-toggle-icon">▴</span>`;
+      });
+
       headingEl.insertAdjacentElement("afterend", expl);
+      headingEl.insertAdjacentElement("afterend", toggleBtn);
     }
 
     if (!section.chapters.length) {
