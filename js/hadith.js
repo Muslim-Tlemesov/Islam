@@ -224,12 +224,11 @@
     </div>
 
     <div class="hadith__explanation">
-      <p class="hadith__section-title">Разъяснение</p>
       ${
         hasExplanation
           ? `<div class="hadith__explanation-toggle" id="explanation-toggle">
-               <button class="hadith__explanation-toggle-btn hadith__explanation-toggle-btn--active" data-mode="short" type="button">Кратко</button>
-               <button class="hadith__explanation-toggle-btn" data-mode="detailed" type="button">Подробно</button>
+               <button class="hadith__explanation-toggle-btn hadith__explanation-toggle-btn--active" data-mode="short" type="button">Разъяснение</button>
+               <button class="hadith__explanation-toggle-btn" data-mode="detailed" type="button">Дополнительно</button>
              </div>
              <div class="hadith__explanation-text" id="explanation-text">${explanationHtml(hadith.explanation.short || hadith.explanation.detailed)}</div>`
           : `<p class="hadith__explanation-text hadith__explanation-text--placeholder">Разъяснение будет добавлено позже.</p>`
