@@ -25,7 +25,7 @@ const STRUCTURE = [
         chapters: [
           {
             id: "bab-waqt-as-salah",
-            title: "Глава о времени молитвы",
+            title: "Глава о временах молитвы",
             titleArabic: "باب وقوت الصلاة",
             hadithIds: ["muwatta-1-1-1"]
           }

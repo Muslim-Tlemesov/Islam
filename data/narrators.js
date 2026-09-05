@@ -13,50 +13,50 @@ const NARRATORS = [
     name: "Яхья ибн Яхья аль-Лайси",
     nameArabic: "يحيى بن يحيى الليثي",
     years: "",
-    bio: ""
+    bio: "",
   },
   {
     id: "malik-ibn-anas",
     name: "Малик ибн Анас",
     nameArabic: "مالك بن أنس",
     years: "",
-    bio: ""
+    bio: "",
   },
   {
     id: "ibn-shihab",
     name: "Ибн Шихаб аз-Зухри",
     nameArabic: "ابن شهاب",
     years: "",
-    bio: ""
+    bio: "",
   },
   {
     id: "umar-ibn-abd-al-aziz",
     name: "Умар ибн Абд аль-Азиз",
     nameArabic: "عمر بن عبد العزيز",
     years: "",
-    bio: ""
+    bio: "",
   },
   {
     id: "urwa-ibn-az-zubayr",
     name: "Урва ибн аз-Зубайр",
     nameArabic: "عروة بن الزبير",
     years: "",
-    bio: ""
+    bio: "",
   },
   {
     id: "al-mughira-ibn-shuba",
-    name: "аль-Мугира ибн Шу'ба",
+    name: "аль-Мугыра ибн Шу'ба",
     nameArabic: "المغيرة بن شعبة",
     years: "",
-    bio: ""
+    bio: "",
   },
   {
     id: "abu-masud-al-ansari",
     name: "Абу Мас'уд аль-Ансари",
     nameArabic: "أبو مسعود الأنصاري",
     years: "",
-    bio: ""
-  }
+    bio: "",
+  },
 ];
 
 if (typeof module !== "undefined") {
