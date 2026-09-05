@@ -16,30 +16,8 @@
 
   const book = STRUCTURE[0]; // пока один сборник — Муватта имама Малика
 
-  const breadcrumbsEl = document.getElementById("breadcrumbs");
   const headingEl = document.getElementById("heading");
   const listEl = document.getElementById("list");
-
-  function link(text, href) {
-    const a = document.createElement("a");
-    a.textContent = text;
-    a.href = href;
-    return a;
-  }
-
-  function renderBreadcrumbs(trail) {
-    breadcrumbsEl.innerHTML = "";
-    trail.forEach((crumb, i) => {
-      if (i > 0) breadcrumbsEl.appendChild(document.createTextNode("›"));
-      if (crumb.href) {
-        breadcrumbsEl.appendChild(link(crumb.label, crumb.href));
-      } else {
-        const span = document.createElement("span");
-        span.textContent = crumb.label;
-        breadcrumbsEl.appendChild(span);
-      }
-    });
-  }
 
   function paragraphsToHtml(text) {
     return text
@@ -61,10 +39,6 @@
 
   // ----- Уровень 1: разделы книги -----
   if (!sectionId) {
-    renderBreadcrumbs([
-      { label: "Главная", href: "index.html" },
-      { label: book.title }
-    ]);
     headingEl.style.display = "none";
 
     if (!book.sections.length) {
@@ -97,11 +71,6 @@
 
   // ----- Уровень 2: главы раздела -----
   if (!chapterId) {
-    renderBreadcrumbs([
-      { label: "Главная", href: "index.html" },
-      { label: book.title, href: "hadiths.html" },
-      { label: section.title }
-    ]);
     headingEl.textContent = section.title;
 
     if (section.explanation) {
@@ -140,12 +109,6 @@
   }
 
   // ----- Уровень 3: хадисы главы -----
-  renderBreadcrumbs([
-    { label: "Главная", href: "index.html" },
-    { label: book.title, href: "hadiths.html" },
-    { label: section.title, href: `hadiths.html?section=${encodeURIComponent(section.id)}` },
-    { label: chapter.title }
-  ]);
   headingEl.textContent = chapter.title;
 
   const hadiths = chapter.hadithIds

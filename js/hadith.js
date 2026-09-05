@@ -14,7 +14,6 @@
   const hadith = HADITHS.find((h) => h.id === id);
 
   const root = document.getElementById("hadith-content");
-  const breadcrumbsEl = document.getElementById("breadcrumbs");
 
   if (!hadith) {
     root.innerHTML = `
@@ -38,28 +37,6 @@
       ? hadith.translation.slice(0, 155)
       : `Хадис №${hadith.number} из сборника «Муватта имама Малика» с иснадом и разъяснением.`
   );
-
-  // ---------- Хлебные крошки ----------
-  breadcrumbsEl.innerHTML = "";
-  const crumbs = [{ label: "Главная", href: "index.html" }];
-  if (book) crumbs.push({ label: book.title, href: "hadiths.html" });
-  if (section) crumbs.push({ label: section.title, href: `hadiths.html?section=${section.id}` });
-  if (chapter) crumbs.push({ label: chapter.title, href: `hadiths.html?section=${section.id}&chapter=${chapter.id}` });
-  crumbs.push({ label: `Хадис №${hadith.number}` });
-
-  crumbs.forEach((c, i) => {
-    if (i > 0) breadcrumbsEl.appendChild(document.createTextNode("›"));
-    if (c.href) {
-      const a = document.createElement("a");
-      a.href = c.href;
-      a.textContent = c.label;
-      breadcrumbsEl.appendChild(a);
-    } else {
-      const span = document.createElement("span");
-      span.textContent = c.label;
-      breadcrumbsEl.appendChild(span);
-    }
-  });
 
   // ---------- Избранное (localStorage) ----------
   function getFavorites() {
