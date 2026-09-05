@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>О сайте</title>
+  <meta name="description" content="О проекте: принципы подачи хадисов, источники и структура сайта.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=Literata:ital,wght@0,400;0,500;1,400&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-header__brand">
+        <span class="site-header__brand-ar">حديث</span>
+        <span class="site-header__brand-ru">Хадисы</span>
+      </a>
+      <nav class="site-header__nav" aria-label="Основная навигация">
+        <a href="index.html" class="site-header__link">Главная</a>
+        <a href="hadiths.html" class="site-header__link">Хадисы</a>
+        <a href="narrators.html" class="site-header__link">Передатчики</a>
+        <a href="about.html" class="site-header__link site-header__link--active">О сайте</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="about">
+    <h1 class="about__heading">О сайте</h1>
+
+    <p class="about__lead">
+      Этот сайт — учебный ресурс о хадисах: их арабский оригинал, перевод,
+      источник, степень достоверности, полная цепочка передатчиков и
+      разъяснение, а также сведения о людях и местах, упоминаемых в текстах.
+    </p>
+
+    <section class="about__section">
+      <h2 class="about__section-title">Источник</h2>
+      <p class="about__text">
+        В основе сайта — сборник «<span lang="ar" class="about__arabic">موطأ الإمام مالك</span>»
+        (Муватта имама Малика). Со временем структура сайта позволит добавить
+        и другие сборники хадисов.
+      </p>
+    </section>
+
+    <section class="about__section">
+      <h2 class="about__section-title">Как устроен материал</h2>
+      <p class="about__text">
+        Хадисы сгруппированы по разделам и главам книги. У каждого хадиса —
+        отдельная страница с арабским текстом, переводом, источником,
+        степенью достоверности, иснадом (с переходом на страницы
+        передатчиков) и разъяснением.
+      </p>
+    </section>
+
+    <section class="about__section">
+      <h2 class="about__section-title">Статус материалов</h2>
+      <p class="about__text">
+        Перевод и разъяснение добавляются постепенно. Если у хадиса пока нет
+        перевода — это временно, материал дополняется.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer__text">Материалы приводятся в учебных целях. Сверяйтесь с оригиналом при цитировании.</p>
+  </footer>
+
+  <script src="js/about.js"></script>
+</body>
+</html>
