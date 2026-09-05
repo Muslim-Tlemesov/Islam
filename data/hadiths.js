@@ -30,7 +30,7 @@ const HADITHS = [
       collection: "Муватта имама Малика",
       reference: "1/1"
     },
-    grade: "",
+    grade: "достоверный",
     variants: [
       { collection: "Сахих аль-Бухари", reference: "521" },
       { collection: "Сахих Муслим", reference: "610" },
