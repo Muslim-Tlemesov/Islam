@@ -119,8 +119,37 @@ a { color: inherit; }
   margin: 0 0 32px;
 }
 
+.browser__section-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: -18px 0 20px;
+  padding: 8px 18px;
+  background: none;
+  border: 1px solid rgba(22, 51, 45, 0.32);
+  border-radius: 2px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--color-ink-soft);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.browser__section-toggle:hover,
+.browser__section-toggle:focus-visible {
+  background: var(--color-parchment-deep);
+  color: var(--color-gold);
+}
+
+.browser__section-toggle--open {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.browser__section-toggle-icon { font-size: 0.75rem; }
+
 .browser__section-explanation {
-  margin: -18px 0 36px;
+  margin: 0 0 36px;
   padding: 20px 22px;
   background: var(--color-parchment-deep);
   border-radius: 2px;
@@ -128,6 +157,8 @@ a { color: inherit; }
   line-height: 1.7;
   font-size: 0.95rem;
 }
+
+.browser__section-explanation--hidden { display: none; }
 
 .browser__section-explanation p { margin: 0 0 12px; }
 .browser__section-explanation p:last-child { margin-bottom: 0; }
