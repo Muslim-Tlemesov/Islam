@@ -139,15 +139,15 @@
     const participants = isnad.filter((l) => l.chainLink === false);
     if (!participants.length) return "";
 
-    const links = participants
+    const boxes = participants
       .map((link) => {
         const narrator = NARRATORS.find((n) => n.id === link.narratorId);
         const label = narrator ? narrator.name : link.narratorId;
-        return `<a class="hadith__isnad-narrative-link" href="narrator.html?id=${encodeURIComponent(link.narratorId)}">${label}</a>`;
+        return `<a class="hadith__isnad-narrative-box" href="narrator.html?id=${encodeURIComponent(link.narratorId)}">${label}</a>`;
       })
-      .join(", ");
+      .join("");
 
-    return `<p class="hadith__isnad-narrative">${links}</p>`;
+    return `<div class="hadith__isnad-narrative-boxes">${boxes}</div>`;
   }
 
   // ---------- Пред/след хадис внутри главы ----------
