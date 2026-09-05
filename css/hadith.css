@@ -179,6 +179,25 @@ a { color: inherit; }
 
 .hadith__isnad-link { stroke: var(--color-sage); stroke-width: 1; }
 
+.hadith__isnad-narrative {
+  margin: 12px 0 0;
+  font-size: 0.92rem;
+  color: var(--color-ink-soft);
+  line-height: 1.7;
+}
+
+.hadith__isnad-narrative-link {
+  color: var(--color-ink-soft);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--color-sage);
+}
+
+.hadith__isnad-narrative-link:hover,
+.hadith__isnad-narrative-link:focus-visible {
+  color: var(--color-gold);
+  border-bottom-color: var(--color-gold);
+}
+
 /* ---------- Explanation ---------- */
 .hadith__explanation { margin: 0 0 44px; }
 
