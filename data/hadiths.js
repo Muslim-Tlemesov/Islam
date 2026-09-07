@@ -38,6 +38,7 @@ const HADITHS = [
     ],
 
     isnad: [
+      { narratorId: "ubaydullah-ibn-yahya", role: "передал", chainLink: true },
       { narratorId: "yahya-ibn-yahya", role: "передал", chainLink: true },
       { narratorId: "malik-ibn-anas", role: "от", chainLink: true },
       { narratorId: "ibn-shihab", role: "от", chainLink: true },
